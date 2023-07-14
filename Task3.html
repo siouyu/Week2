@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3_JS</title>
+</head>
+<body>
+    <script>
+        function func(...data) {
+            let middle_name = {};
+            for (let i = 0; i < data.length; i++) {
+                let name = data[i];
+                if (name[1] in middle_name) {
+                    middle_name[name[1]].push(name); 
+                    // JS 的 push = Python 的 append
+                } else {
+                    middle_name[name[1]] = [name];
+                }
+            }
+            for (let key in middle_name) {
+                let value = middle_name[key];
+                if (value.length === 1) {
+                    console.log(value[0]);
+                    return;
+                }
+            }
+            console.log("沒有");
+        }
+    
+        func("彭大牆", "王明雅", "吳明"); // print 彭大牆
+        func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花"); // print 林花花
+        func("郭宣雅", "林靜宜", "郭宣恆", "林靜花"); // print 沒有
+    </script>
+</body>
+</html>

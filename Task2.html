@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <title>Task2_JS</title>
+    </head>
+<body>
+<script>
+    function calculateSumOfBonus(data) {
+        // 表現 above average 可以拿本薪的 10% 當作 bonus
+        // 表現 above average 可以拿本薪的 5% 當作 bonus
+    var employees = data["employees"];
+    var totalBonus = 0;
+    for (var i = 0; i < employees.length; i++) {
+        var employee = employees[i];
+        if (employee["performance"] === "above average") {
+            if (!Number.isInteger(employee["salary"])) {
+                if (employee["salary"].includes("USD")) {
+                    var salaryUSD = parseInt(employee["salary"].replace("USD", ""));
+                    var salary = salaryUSD * 30;
+                    totalBonus += salary * 0.1;
+                } else {
+                    var salary = parseInt(employee["salary"]);
+                    totalBonus += salary * 0.1;
+                }
+            } else {
+                totalBonus += salary * 0.1;
+            }
+        }
+        
+        if (employee["performance"] === "average") {
+            if (!Number.isInteger(employee["salary"])) {
+                if (employee["salary"].includes("USD")) {
+                    var salaryUSD = parseInt(employee["salary"].replace("USD", ""));
+                    var salary = salaryUSD * 30;
+                    totalBonus += salary * 0.05;
+                } else {
+                    var salary = parseInt(employee["salary"]);
+                    totalBonus += salary * 0.05;
+                }
+            } else {
+                totalBonus += salary * 0.05;
+            }
+        }
+    }
+    console.log(Math.floor(totalBonus) + " NTD");
+}
+
+    calculateSumOfBonus({
+        "employees":[
+        {
+            "name":"John", 
+            "salary":"1000USD", 
+            "performance":"above average",
+            "role":"Engineer" 
+        }, 
+        { 
+            "name":"Bob", 
+            "salary":"60000",
+            "performance":"average", 
+            "role":"CEO" 
+        }, 
+        { 
+            "name":"Jenny", 
+            "salary":"50,000", 
+            "performance":"below average", 
+            "role":"Sales" 
+        } 
+        ]
+    });
+</script>
+</body>
+</html>

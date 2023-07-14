@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4_JS</title>
+</head>
+<body>
+    <script>
+        function getNumber(index) {
+            if ((index + 1) % 2 === 0) {
+                let i = Math.floor((index + 1) / 2);
+                console.log(1 + i * 3);
+            } else {
+                let i = Math.floor((index + 1) / 2);
+                console.log(i * 3);
+                return;
+            }
+        }
+
+        getNumber(1); // print 4
+        getNumber(5); // print 10
+        getNumber(10); // print 15
+    </script>
+</body>
+</html>

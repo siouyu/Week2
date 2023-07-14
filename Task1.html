@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <title>Task1_JS</title>
+    </head>
+    <body>
+        <script>
+        function findAndPrint(messages){
+        // 有實際提到自己年紀或達到台灣法定年齡、現在是大學生（假設沒有跳級）、有投票權的人都算 17 歲以上
+            let olderThan17 = [];
+            for (let name in messages) {
+                if (messages[name].includes("years old") || messages[name].includes("legal age") || messages[name].includes("college") || messages[name].includes("vote")) {
+                olderThan17.push(name);
+            }
+        }
+        for (let i = 0; i < olderThan17.length; i++) {
+            console.log(olderThan17[i]);
+        }
+        } 
+        findAndPrint({
+            "Bob":"My name is Bob. I'm 18 years old.", 
+            "Mary":"Hello, glad to meet you.",
+            "Copper":"I'm a college student. Nice to meet you.",
+            "Leslie":"I am of legal age in Taiwan.",
+            "Vivian":"I will vote for Donald Trump next week",
+            "Jenny":"Good morning."
+        });
+        </script>
+    </body>
+</html>
